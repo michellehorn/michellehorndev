@@ -1,36 +1,18 @@
-import React from "react";
-
-type Project = {
-  title: string;
-  description: string;
-  tech: string[];
-  github?: string;
-  demo?: string;
-};
-
-const projects: Project[] = [
-  {
-    title: "Trybe Learning Platform",
-    description: "Contributed to the development of Trybe’s full edtech platform, focusing on reusable UI components and DX improvements.",
-    tech: ["React", "GraphQL", "TypeScript", "Styled-Components"],
-    github: "https://github.com/your-trybe-clone",
-  },
-  {
-    title: "FitTrack – Fitness App",
-    description: "A wellness companion app (WIP) built with React Native, featuring workouts, nutrition tracking, and personal goals.",
-    tech: ["React Native", "Expo", "Firebase"],
-  },
-  {
-    title: "HR Dashboard (Ambev)",
-    description: "Internal HR platform for performance and people tracking, built for Ambev’s internal teams.",
-    tech: ["Next.js", "Tailwind", "Node.js"],
-  },
-];
+import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
+import { projectsEN } from '../mocks/en';
+import { projectsPT } from '../mocks/pt';
 
 const Projects: React.FC = () => {
+  const { language } = useLanguage();
+  const projects = language === 'pt' ? projectsPT : projectsEN;
+
   return (
     <section id="projects" className="w-full max-w-5xl mx-auto py-20 px-6 text-white">
-      <h2 className="text-4xl font-bold text-green-400 text-center mb-12">Projects</h2>
+      <h2 className="text-4xl font-bold text-green-400 text-center mb-12">
+        {language === 'pt' ? 'Projetos' : 'Projects'}
+      </h2>
+
       <div className="grid md:grid-cols-2 gap-10">
         {projects.map((project, index) => (
           <div
@@ -42,10 +24,7 @@ const Projects: React.FC = () => {
             <p className="text-gray-300 mb-4">{project.description}</p>
             <div className="flex flex-wrap gap-2 mb-4">
               {project.tech.map((tech, i) => (
-                <span
-                  key={i}
-                  className="bg-green-600 text-black text-xs font-semibold px-2 py-1 rounded"
-                >
+                <span key={i} className="bg-green-600 text-black text-xs font-semibold px-2 py-1 rounded">
                   {tech}
                 </span>
               ))}

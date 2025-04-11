@@ -1,12 +1,24 @@
 import React from 'react';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { useLanguage } from '../contexts/LanguageContext';
+import { contactEN } from '../mocks/en';
+import { contactPT } from '../mocks/pt';
+
+const translations = {
+  en: contactEN,
+  pt: contactPT,
+};
 
 const Contact: React.FC = () => {
+  const { language } = useLanguage();
+  const { title, description } = translations[language];
+
+
   return (
     <section id="contact" className="w-full max-w-3xl mx-auto py-20 px-6 text-white text-center">
-      <h2 className="text-4xl font-bold text-green-400 mb-6">Contact</h2>
+      <h2 className="text-4xl font-bold text-green-400 mb-6">{title}</h2>
       <p className="text-gray-300 text-lg mb-10">
-        Wanna build something together? Or just say hi? 👋 Drop me a message or connect below!
+        {description}
       </p>
 
       <div className="flex justify-center gap-8 text-2xl text-green-400">

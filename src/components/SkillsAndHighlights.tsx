@@ -1,24 +1,21 @@
 import React from 'react';
+import { skillsAndHighlightsEN } from '../mocks/en';
+import { skillsAndHighlightsPT } from '../mocks/pt';
+import { useLanguage } from '../contexts/LanguageContext';
 
-const skills = {
-  Frontend: ['React', 'Next.js', 'Vue.js', 'TypeScript', 'Tailwind', 'Styled-Components'],
-  Backend: ['Node.js (beginner)', 'Elixir (beginner)', 'C# (beginner)'],
-  Tools: ['Git', 'GitHub', 'Figma', 'GraphQL', 'REST APIs', 'CI/CD'],
-  Testing: ['Jest', 'Testing Library', 'Cypress'],
+const translations = {
+  en: skillsAndHighlightsEN,
+  pt: skillsAndHighlightsPT,
 };
 
-const highlights = [
-  'Currently studying React Native (navigation, auth, Expo, UI with Figma)',
-  'Mentored junior devs & taught React workshops at Trybe',
-  'Built onboarding docs and learning material',
-  'Contributed to internal design systems',
-  'Using AI tools like GitHub Copilot & ChatGPT to boost DX',
-];
-
 const SkillsAndHighlights: React.FC = () => {
+
+const { language } = useLanguage();
+const { title, highlightsTitle, skills, highlights } = translations[language];
+
   return (
     <section id="skills" className="w-full max-w-5xl mx-auto py-20 px-6 text-white">
-      <h2 className="text-4xl font-bold text-green-400 text-center mb-12">Skills & Highlights</h2>
+      <h2 className="text-4xl font-bold text-green-400 text-center mb-12">{title}</h2>
 
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mb-16">
         {Object.entries(skills).map(([category, items]) => (
@@ -39,7 +36,7 @@ const SkillsAndHighlights: React.FC = () => {
       </div>
 
       <div className="text-left max-w-3xl mx-auto space-y-4" data-aos="fade-up">
-        <h3 className="text-xl font-semibold text-green-300 mb-2">Highlights</h3>
+        <h3 className="text-xl font-semibold text-green-300 mb-2">{highlightsTitle}</h3>
         <ul className="list-disc list-inside text-gray-300 space-y-2">
           {highlights.map((item, i) => (
             <li key={i}>{item}</li>

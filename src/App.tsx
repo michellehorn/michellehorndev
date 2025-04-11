@@ -6,7 +6,9 @@ import 'aos/dist/aos.css';
 import Projects from './components/Projects';
 import SkillsAndHighlights from './components/SkillsAndHighlights';
 import Contact from './components/Contact';
-import Navbar from './components/NavBar';
+import Navbar from './components/Navbar';
+import { LanguageProvider } from './contexts/LanguageContext';
+import LanguageSwitcher from './components/LanguageSwitcher';
 
 function App() {
   useEffect(() => {
@@ -14,14 +16,15 @@ function App() {
   }, []);
 
   return (
-    <>
+    <LanguageProvider>
+      <LanguageSwitcher />
       <Navbar />
       <Header />
       <AboutMe />
       <Projects />
       <SkillsAndHighlights />
       <Contact />
-    </>
+    </LanguageProvider>
   );
 }
 
