@@ -1,11 +1,12 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { projectsEN } from '../mocks/en';
+import { general, projectsEN } from '../mocks/en';
 import { projectsPT } from '../mocks/pt';
 
 const Projects: React.FC = () => {
   const { language } = useLanguage();
   const projects = language === 'pt' ? projectsPT : projectsEN;
+  const wipText = language === 'pt' ? general.wip : general.wip;
 
   return (
     <section id="projects" className="w-full max-w-5xl mx-auto py-20 px-6 text-white">
@@ -43,6 +44,7 @@ const Projects: React.FC = () => {
             </div>
           </div>
         ))}
+        <span className="text-center font-bold">{wipText}...</span>
       </div>
     </section>
   );

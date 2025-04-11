@@ -74,3 +74,7 @@ export const projectsEN = [
     demo: ''
   },
 ];
+
+export const general = {
+  wip: 'This is a work in progress',
+}

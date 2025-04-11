@@ -74,3 +74,8 @@ export const projectsPT = [
     demo: ''
   },
 ];
+
+
+export const general = {
+  wip: 'Este é um trabalho em andamento',
+}
