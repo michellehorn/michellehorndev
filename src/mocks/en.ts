@@ -68,7 +68,7 @@ export const projectsEN = [
   {
     title: 'ReactCast',
     description:
-      'Podcast app with audio playback, navigation, and episode search. Built to practice React Navigation and API integration.',
+      'Simple weather app. Built to practice React Navigation and API integration.',
     tech: ['React Native', 'React Navigation', 'Expo AV', 'REST API'],
     github: 'https://github.com/michellehorn/reactcast',
     demo: ''

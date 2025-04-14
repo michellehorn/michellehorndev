@@ -63,19 +63,17 @@ export const projectsPT = [
       'App mobile para explorar e salvar receitas. Desenvolvido com React Native e Expo. Possui busca, filtros e UI baseada no Figma.',
     tech: ['React Native', 'Expo', 'AsyncStorage', 'Figma'],
     github: 'https://github.com/michellehorn/react-cipes',
-    demo: ''
+    demo: '',
   },
   {
     title: 'ReactCast',
-    description:
-      'Aplicativo de podcasts com player de áudio, navegação e busca de episódios. Criado para praticar navegação e consumo de API.',
+    description: 'Aplicativo de clima simples. Criado para praticar a navegação React e a integração com API.',
     tech: ['React Native', 'React Navigation', 'Expo AV', 'REST API'],
     github: 'https://github.com/michellehorn/reactcast',
-    demo: ''
+    demo: '',
   },
 ];
 
-
 export const general = {
   wip: 'Este é um trabalho em andamento',
-}
+};
